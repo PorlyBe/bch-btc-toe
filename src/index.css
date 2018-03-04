@@ -1,0 +1,101 @@
+body {
+    font: 14px "Century Gothic", Futura, sans-serif;
+    margin: 20px;
+}
+
+ol, ul {
+    padding-left: 30px;
+}
+
+.board-row:after {
+    clear: both;
+    content: "";
+    display: table;
+}
+
+.status {
+    margin-bottom: 10px;
+}
+
+.square {
+    background: #fff;
+    border: 2px solid #999;
+    float: left;
+    height: 64px;
+    margin-right: -1px;
+    margin-top: -1px;
+    padding: 0;
+    text-align: center;
+    width: 64px;
+}
+
+.square:focus {
+    outline: none;
+}
+
+.kbd-navigation .square:focus {
+    background: #ddd;
+}
+
+.game {
+    display: grid;
+    flex-direction: row;
+}
+
+.coin {
+    height: 30px;
+    width: 30px;
+}
+
+.game-info {
+    text-align: center;
+    width: 192px;
+}
+
+.game-info .coin {
+    display: grid;
+    margin-top: 10px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.game-players{
+    display:grid;
+    text-align: center;
+    width: 192px;
+}
+
+.game-players input{
+    margin: 10px auto;
+
+}
+
+.reset-button {
+    margin: 10px auto;
+    display: grid;
+    background: #fff;
+    border: 2px solid #999;
+    border-radius: 5px;
+    height: 32px;
+    padding: 0;
+    text-align: center;
+    width: 128px;
+}
+
+.fade-enter {
+    opacity: 0;
+}
+
+.fade-enter-active {
+    opacity: 1;
+    transition: opacity 300ms ease-out;
+}
+
+.fade-leave {
+    opacity: 1;
+}
+
+.fade-leave-active {
+    opacity: 0;
+    transition: opacity 300ms ease-out;
+}
