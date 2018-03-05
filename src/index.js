@@ -231,7 +231,17 @@ class Game extends React.Component {
             // shitty AI
             if (calculateWinner(squares)) return;
             this.setState({ inPlay: true });
+            squares[i] = this.state.xIsNext ? "X" : "O";
 
+            this.setState({
+                history: history.concat([
+                    {
+                        squares: squares
+                    }
+                ]),
+                stepNumber: history.length,
+                xIsNext: !this.state.xIsNext
+            });
 
             let empty = 0;
             squares.forEach(e => {
@@ -250,6 +260,7 @@ class Game extends React.Component {
                 }
             });
             setTimeout(() => {
+                if (calculateWinner(squares)) return;
 
                 squares[move] = this.state.xIsNext ? "X" : "O";
 
@@ -296,7 +307,6 @@ class Game extends React.Component {
         setTimeout(() => {
             if(!gameSocket) return;
             gameSocket.on("turn", data => {
-                
                 this.setState({
                     history: data.history.concat([
                         {
@@ -309,13 +319,20 @@ class Game extends React.Component {
                 game.isNext = data.isNext;
             });
 
+            gameSocket.on("reset", (data)=>{
+                this.setState({
+                    inPlay:false,
+                    stepNumber: 0,
+                    xIsNext: false
+                });
+            })
         }, 100);
     }
 
     handleReset(step){
         if(this.state.player === "remote"){
             gameSocket.emit("reset", game.state.gameRoom);
-
+            
             console.log("RESET")
         } else {
             this.jumpTo(step);
@@ -324,6 +341,7 @@ class Game extends React.Component {
 
     jumpTo(step) {
         this.setState({
+            inPlay:false,
             stepNumber: step,
             xIsNext: (step % 2) === 0
         });
