@@ -20,7 +20,7 @@ class RemotePlayers extends React.Component {
         this.state = {
             rooms: null,
             clientId: null,
-            endpoint: "http://192.168.1.3:3030",
+            endpoint: "https://bch-btc-toe-server.herokuapp.com/",
             socket: null,
             inGame: false,
             gameRoom: null,
