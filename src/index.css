@@ -7,6 +7,11 @@ ol, ul {
     padding-left: 30px;
 }
 
+h1 {
+    text-align: center;
+    width: 100%;
+}
+
 .board-row:after {
     clear: both;
     content: "";
@@ -20,8 +25,8 @@ ol, ul {
 .square {
     background: #fff;
     border: 2px solid #999;
-    float: left;
     height: 64px;
+    float: left;
     margin-right: -1px;
     margin-top: -1px;
     padding: 0;
@@ -42,6 +47,12 @@ ol, ul {
     flex-direction: row;
 }
 
+.game-board{
+    text-align:center;
+    width: 192px;
+    margin:auto;
+}
+
 .coin {
     height: 30px;
     width: 30px;
@@ -49,37 +60,27 @@ ol, ul {
 
 .game-info {
     text-align: center;
-    width: 192px;
 }
 
 .game-info .coin {
     display: grid;
-    margin-top: 10px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.game-players{
-    display:grid;
-    text-align: center;
-    width: 192px;
-}
-
-.game-players input{
     margin: 10px auto;
-
 }
 
-.reset-button {
-    margin: 10px auto;
-    display: grid;
-    background: #fff;
-    border: 2px solid #999;
-    border-radius: 5px;
-    height: 32px;
-    padding: 0;
+.player-select {
     text-align: center;
-    width: 128px;
+}
+
+.btn {
+    background-color: orange;
+}
+
+.btn.active {
+    background-color: darkorange;
+}
+
+.player-select input {
+    display:none;
 }
 
 .fade-enter {
